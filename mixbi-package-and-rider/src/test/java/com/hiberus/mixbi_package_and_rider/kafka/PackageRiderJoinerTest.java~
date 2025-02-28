@@ -1,0 +1,6 @@
+package com.hiberus.mixbi_package_and_rider.kafka;
+
+import static org.junit.jupiter.api.Assertions.*;
+class PackageRiderJoinerTest {
+
+}

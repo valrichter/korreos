@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.correos.avro",
+  "name": "PackageHistoryKey",
+  "fields": [
+    {
+      "name": "package_id",
+      "type": "string"
+    }
+  ]
+}

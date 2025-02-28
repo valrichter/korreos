@@ -1,0 +1,35 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.correos.avro",
+  "name": "WarehouseTransfersValue",
+  "fields": [
+    {
+      "name": "package_id",
+      "type": "string"
+    },
+    {
+      "name": "rider_id",
+      "type": "string"
+    },
+    {
+      "name": "previous_warehouse",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "actual_warehouse",
+      "type": "string"
+    },
+    {
+      "name": "destiny_warehouse",
+      "type": ["null", "string"]
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "Status",
+        "symbols": ["IN_TRANSIT", "AT_WAREHOUSE"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: pcs-destiny-eta
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ${spring.application.name}
+      auto-offset-reset: earliest
+      properties:
+        key.deserializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroDeserializer
+        value.deserializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroDeserializer
+        schema.registry.url: http://localhost:8081
+    producer:
+      properties:
+        key.serializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerializer
+        value.serializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerializer
+        schema.registry.url: http://localhost:8081
+
+
+environment:
+  warehouse-transfers-topic: warehouse-transfers
+  package-destiny-ETA-topic: packages-destiny-ETA

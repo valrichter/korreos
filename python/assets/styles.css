@@ -1,0 +1,24 @@
+/* Incluir la fuente de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-sserif; /* Aplicar la fuente a la tabla */
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif; /* Aplicar la fuente a las celdas */
+}
+
+.font-bold {
+    font-weight: bold;
+}

@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.correos.avro",
+  "name": "PackageDestinyETAKey",
+  "fields": [
+    {
+      "name": "actual_warehouse",
+      "type": "string"
+    }
+  ]
+}

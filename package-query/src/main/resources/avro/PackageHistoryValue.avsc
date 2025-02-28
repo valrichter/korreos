@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.correos.avro",
+  "name": "PackageHistoryValue",
+  "fields": [
+    {
+      "name": "package_id",
+      "type": "string"
+    },
+    {
+      "name": "history",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "WarehouseHistory",
+          "fields": [
+            {
+              "name": "warehouse_name",
+              "type": "string"
+            },
+            {
+              "name": "rider_name",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "Status",
+        "symbols": ["IN_TRANSIT", "AT_WAREHOUSE"]
+      }
+    }
+  ]
+}

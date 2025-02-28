@@ -1,0 +1,35 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: package-query
+  kafka:
+    bootstrap-servers: ${kafka:localhost}:9092
+    consumer:
+      group-id: ${spring.application.name}
+      auto-offset-reset: earliest
+      properties:
+        key.deserializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroDeserializer
+        value.deserializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroDeserializer
+        schema.registry.url: http://localhost:8081
+  data:
+    redis:
+      repositories:
+        enabled: false
+      connections:
+        packages:
+          host: ${redis.packages.host:localhost}
+          port: ${redis.packages.port:6379}
+          database: 0  # Base de datos 0 para packages
+          password: ${redis.packages.password}
+          timeout: 2000
+        last-topic:
+          host: ${redis.riders.host:localhost}
+          port: ${redis.riders.port:6381}
+          database: 2
+          password: ${redis.riders.password}
+          timeout: 2000
+
+environment:
+  package-history-topic: package-history

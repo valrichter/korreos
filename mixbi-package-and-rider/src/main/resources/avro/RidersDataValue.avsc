@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.correos.avro",
+  "name": "RidersDataValue",
+  "fields": [
+    {
+      "name": "rider_id",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    }
+  ]
+}

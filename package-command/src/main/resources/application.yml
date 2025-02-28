@@ -1,0 +1,35 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: package-command
+  kafka:
+    bootstrap-servers: ${kafka:localhost}:9092
+    producer:
+      properties:
+        key.serializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerializer
+        value.serializer: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerializer
+        schema.registry.url: http://localhost:8081
+        auto.create.topics.enable: false
+  data:
+    redis:
+      repositories:
+        enabled: false
+      connections:
+        packages:
+          host: ${redis.packages.host:localhost}
+          port: ${redis.packages.port:6379}
+          database: 0  # Base de datos 0 para packages
+          password: ${redis.packages.password}
+          timeout: 2000
+        riders:
+          host: ${redis.riders.host:localhost}
+          port: ${redis.riders.port:6380}
+          database: 1  # Base de datos 1 para riders
+          password: ${redis.riders.password}
+          timeout: 2000
+
+environment:
+  warehouse-transfers-topic: warehouse-transfers
+  riders-data-topic: riders-data

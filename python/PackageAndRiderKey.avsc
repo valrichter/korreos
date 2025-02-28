@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "namespace": "com.hiberus.correos.avro",
+  "name": "PackageAndRiderKey",
+  "fields": [
+    {
+      "name": "rider_id",
+      "type": "string"
+    }
+  ]
+}

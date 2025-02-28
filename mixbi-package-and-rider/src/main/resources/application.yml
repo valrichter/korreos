@@ -1,0 +1,48 @@
+server.port: 8003
+
+topic-in-0: packages-destiny-ETA
+topic-in-1: riders-data
+topic-out-0: package-and-rider
+
+spring:
+    application.name: mixbi-package-and-rider
+    cloud:
+        function.definition: joiner;
+        stream:
+            bindings:
+                joiner-in-0:
+                    destination: ${topic-in-0}
+                    consumer:
+                        concurrency: 1
+                        useNativeDecoding: true
+                joiner-in-1:
+                    destination: ${topic-in-1}
+                    consumer:
+                        concurrency: 1
+                        useNativeDecoding: true
+                joiner-out-0:
+                    destination: ${topic-out-0}
+                    producer.useNativeEncoding: true
+            kafka:
+                binder:
+                    brokers: ${kafka:localhost}:9092
+            kafka.streams:
+                bindings:
+                    joiner-in-0:
+                        consumer:
+                            keySerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+                            valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+                            applicationId: ${spring.application.name}
+                    joiner-in-1:
+                        consumer:
+                            keySerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+                            valueSerde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+                            applicationId: ${spring.application.name}
+                binder:
+                    configuration:
+                        commit.interval.ms: 100
+                        session.timeout.ms: 10000
+                        schema.registry.url: http://localhost:8081
+                        auto.register.schemas: true
+                        default.key.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+                        default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
