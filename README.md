@@ -20,3 +20,4 @@ Autor: Alexis Valentin Richter
 - Redpanda: http://localhost:8080
 
 # [Diagrama](https://excalidraw.com/#json=TUPshf7i5k_mR55FC9Doc,FPde73sDSsVpDiIgMHhCpA)
+![Korreos](https://github.com/user-attachments/assets/f907bb69-b1a5-4631-ab0c-8e9eb2ee31e6)
